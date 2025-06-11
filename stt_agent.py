@@ -15,13 +15,13 @@ from livekit.agents import (
 )
 from livekit.plugins import assemblyai # type: ignore
 
-# Load .env variables
+
 load_dotenv()
 
-# Set up logging
+
 logger = logging.getLogger("transcriber")
 
-# Load environment values
+
 LIVEKIT_URL = os.getenv("wss://voiceassistant29-evg225gc.livekit.cloud")
 LIVEKIT_API_KEY = os.getenv("APIxN3fREFnHpy8")
 LIVEKIT_API_SECRET = os.getenv("oFafjfUHpcyFMAuPMmeAe4Q7mzlbyq5nUhWrtuGedOZE")
@@ -68,7 +68,7 @@ async def entrypoint(ctx: JobContext):
                 print(" ->", ev.alternatives[0].text)
                 stt_forwarder.update(ev)
 
-    # Generate token and connect
+    
     access_token = token.AccessToken(
         api_key=LIVEKIT_API_KEY,
         api_secret=LIVEKIT_API_SECRET,
